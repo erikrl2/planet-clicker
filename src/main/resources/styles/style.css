@@ -1,0 +1,60 @@
+#root-main {
+	-fx-background-color: transparent;
+}
+#root-settings {
+	-fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #dc143c, #32cd32);
+	-fx-padding: 0 30 0 30;
+	-fx-alignment: center;
+	-fx-border-color: black;
+	-fx-border-width: 2;
+	-fx-border-radius: 30;
+	-fx-background-radius: 30;
+	-fx-border-insets: 5;
+}
+
+.score-text {
+	-fx-font-size: 18px;
+	-fx-fill: yellow;
+	-fx-font-family: Magneto;
+}
+
+#hint {
+	-fx-fill: white;
+	-fx-font-family: Ebrima;
+}
+
+#settings-btn-text {
+	-fx-font-size: 16;
+	-fx-fill: white;
+	-fx-font-family: "Sitka Subheading";
+}
+
+#settings-head {
+	-fx-fill: white;
+	-fx-font-family: Algerian;
+	-fx-font-size: 24;
+}
+
+.settings-text {
+	-fx-fill: white;
+	-fx-font-size: 14;
+	-fx-font-family: "Sitka Display";
+	
+}
+
+.slider .thumb {
+	-fx-padding: 10;
+	-fx-background-color: black;
+}
+
+.button {
+	-fx-font-family: "Sitka Display";
+	-fx-font-size: 14;
+	-fx-background-color: black;
+	-fx-text-fill: white;
+	-fx-background-radius: 8;
+}.button:hover {
+	-fx-background-color: #E7E6E6;
+	-fx-text-fill: black;
+}
+

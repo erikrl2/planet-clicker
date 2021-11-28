@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.erik</groupId>
+	<artifactId>aimtrainer</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<java.version>16</java.version>
+		<javafx.version>16</javafx.version>
+		<maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+		<javafx.maven.plugin.version>0.0.8</javafx.maven.plugin.version>
+		<jpackage.maven.plugin.version>1.4.0</jpackage.maven.plugin.version>
+		<main.class>de.erik.aimtrainer.AimtrainerApp</main.class>
+		<module.name>aimtrainer.main</module.name>
+		<jpackage.name>Planet-Clicker</jpackage.name>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-controls</artifactId>
+			<version>${javafx.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven.compiler.plugin.version}</version>
+				<configuration>
+					<release>${java.version}</release>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.openjfx</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>${javafx.maven.plugin.version}</version>
+				<configuration>
+					<stripDebug>true</stripDebug>
+					<compress>2</compress>
+					<noHeaderFiles>true</noHeaderFiles>
+					<noManPages>true</noManPages>
+					<jlinkImageName>custom_jre</jlinkImageName>
+					<!-- <jlinkZipName>jlinkZip</jlinkZipName> -->
+					<!-- <launcher>launcher</launcher> -->
+					<mainClass>${main.class}</mainClass>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.panteleyev</groupId>
+				<artifactId>jpackage-maven-plugin</artifactId>
+				<version>${jpackage.maven.plugin.version}</version>
+				<configuration>
+					<name>${jpackage.name}</name>
+					<appVersion>1.0.0</appVersion>
+					<vendor>Erik Lauterwald</vendor>
+					<type>EXE</type>
+					<winShortcut>true</winShortcut>
+					<winDirChooser>true</winDirChooser>
+					<winPerUserInstall>true</winPerUserInstall>
+					<winMenu>true</winMenu>
+					<winMenuGroup>${jpackage.name}</winMenuGroup>
+					<destination>target</destination>
+					<module>${module.name}/${main.class}</module>
+					<runtimeImage>target/custom_jre</runtimeImage>
+					<icon>src/main/resources/icons/planet.ico</icon>
+					<javaOptions>
+						<option>-Dfile.encoding=UTF-8</option>
+					</javaOptions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
